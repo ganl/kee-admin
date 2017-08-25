@@ -18,6 +18,16 @@
       :picker-options="pickerOptions1">
     </el-date-picker>
   </div>
+
+  <label for="locale">locale</label>
+    <select v-model="locale">
+      <option>en</option>
+      <option>zh-CN</option>
+      <option>zh-TW</option>
+      <option>ru-RU</option>
+    </select>
+  <p>{{ $t("hello") }}</p>
+
 </div>
 </template>
 
@@ -49,7 +59,13 @@
           }]
         },
         value1: '',
-        value2: ''
+        value2: '',
+        locale: 'en'
+      }
+    },
+    watch: {
+      locale (val) {
+        this.$i18n.locale = val
       }
     }
   }
