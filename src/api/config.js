@@ -1,6 +1,9 @@
-export default {
+import store from 'store'
+
+const config = {
   header: {
-    method: 'POST',
+    // method: 'POST',
+    // credentials: 'include',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
@@ -15,3 +18,9 @@ export default {
     }
   }
 }
+
+if (store.state.login.token) {
+  config.header.headers.Authorization = store.state.login.token
+}
+
+export default config
