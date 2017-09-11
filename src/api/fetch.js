@@ -4,6 +4,7 @@ import config from './config'
 
 const request = {
   get (url, params) {
+    url = config.api.base + url
     if (params) {
       url += '?' + Qs.stringify(params)
     }
@@ -16,6 +17,7 @@ const request = {
       .then(responseJson => Mock.mock(responseJson))
   },
   request (url, body, method) {
+    url = config.api.base + url
     let options = {
       method: method,
       ...config.header,
@@ -26,13 +28,13 @@ const request = {
       .then(responseJson => Mock.mock(responseJson))
   },
   post (url, body) {
-    this.request(url, body, 'POST')
+    return this.request(url, body, 'POST')
   },
   put (url, body) {
-    this.request(url, body, 'PUT')
+    return this.request(url, body, 'PUT')
   },
   delete (url, body) {
-    this.request(url, body, 'DELETE')
+    return this.request(url, body, 'DELETE')
   }
 }
 

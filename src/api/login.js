@@ -3,7 +3,7 @@ import config from './config'
 
 export default {
   login (params) {
-    let url = config.api.base + config.api.auth
+    let url = config.api.auth
     return request.post(url, params)
   }
 }

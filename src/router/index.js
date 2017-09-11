@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Hello from '@/components/Hello'
-import Test from '@/views/Test'
+import Test from 'views/Test'
 
 Vue.use(Router)
 

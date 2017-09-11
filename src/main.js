@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import { Button, Select, TimePicker, DatePicker } from 'element-ui'
 import router from './router'
+import store from './store'
 
 import VueI18n from 'vue-i18n'
 import Locales from './locale'
@@ -59,6 +60,7 @@ ElementLocale.i18n((key, value) => i18n.t(key, value))
 new Vue({
   el: '#app',
   i18n,
+  store,
   router,
   template: '<App/>',
   components: { App }
