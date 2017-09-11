@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import * as actions from './actions'
 import * as getters from './getters'
-import auth from './modules/login'
+import auth from './modules/auth'
 
 Vue.use(Vuex)
 
