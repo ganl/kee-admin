@@ -1,7 +1,8 @@
-import store from 'store'
+// import store from 'store'
 
 const config = {
   header: {
+    mode: 'cros',
     // method: 'POST',
     // credentials: 'include',
     headers: {
@@ -10,7 +11,7 @@ const config = {
     }
   },
   api: {
-    base: 'http://mockjs/api/',
+    base: 'http://linux.i2/api/',
     auth: 'auth/token',
     user: 'user/index',
     node: {
@@ -19,9 +20,9 @@ const config = {
   }
 }
 
-if (store.state.login.token) {
-  config.header.headers.Authorization = store.state.login.token
-}
+// if (store.getters.accessToken) {
+//   config.header.headers.Authorization = store.state.login.token
+// }
 
 const API_TIMEOUT = 5000
 
