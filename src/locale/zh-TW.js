@@ -1,6 +1,7 @@
 const langTW = {
   hello: '你好-TW',
   username: '用户名',
+  password: '密码',
   loginBtn: '登录'
 }
 

@@ -26,4 +26,4 @@ const config = {
 
 const API_TIMEOUT = 5000
 
-export {API_TIMEOUT, config as default}
+export { API_TIMEOUT, config as default }

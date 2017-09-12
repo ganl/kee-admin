@@ -1,13 +1,13 @@
 <template>
   <div>
   <el-row>
-    <el-col :span="24">
+    <el-col :xs="20" :sm="14" :md="10" :lg="6">
       <el-form :model="loginForm" :rules="loginRules" ref="loginForm" class="">
         <el-form-item :label="lables.username" prop="username">
           <el-input v-model="loginForm.username"></el-input>
         </el-form-item>
-        <el-form-item :label="$t('hello')" prop="pwd">
-          <el-input v-model="loginForm.pwd"></el-input>
+        <el-form-item :label="$t('password')" prop="password">
+          <el-input v-model="loginForm.password"></el-input>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" :loading="loading" @click.native.prevent="login">{{$t('loginBtn')}}</el-button>
@@ -27,13 +27,13 @@ export default {
       },
       loginForm: {
         username: '',
-        pwd: ''
+        password: ''
       },
       loginRules: {
         username: [
             { required: true, message: '请输入用户名', trigger: 'blur' }
         ],
-        pwd: [
+        password: [
             { required: true, message: '请输入登录密码', trigger: 'blur' }
         ]
       },
@@ -48,6 +48,9 @@ export default {
           this.$store.dispatch('loginByIdentity', this.loginForm).then(() => {
             this.loading = false
             this.$router.push({path: '/test'})
+          }).catch(err => {
+            this.loading = false
+            console.log(err)
           })
         } else {
           console.log('error input')

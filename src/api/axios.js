@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {config, API_TIMEOUT} from './config'
+import { default as config, API_TIMEOUT } from './config'
 import Mock from 'mockjs'
 
 // Request Config options
@@ -173,7 +173,10 @@ axiosInstance.interceptors.request.use(
 )
 
 axiosInstance.interceptors.response.use(
-  response => { return Mock.mock(response.json) },
+  response => {
+    // console.log(response)
+    return Mock.mock(response.data)
+  },
   error => {
     console.log('err' + error)
     if (error.response) {
@@ -191,8 +194,8 @@ export default {
     let options = {
       url,
       method,
-      responseType: 'json',
-      withCredentials: true
+      responseType: 'json'
+      // withCredentials: true
     }
     if (method === 'get') {
       options.params = params

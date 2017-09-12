@@ -29,6 +29,7 @@ const actions = {
             resolve(data)
           } else {
             console.log(data.code + ',' + data.message)
+            reject(data)
           }
         }
       ).catch(error => reject(error))
