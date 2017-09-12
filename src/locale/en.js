@@ -1,4 +1,6 @@
 const langEN = {
-  hello: 'hello'
+  hello: 'hello',
+  username: 'username',
+  loginBtn: 'login'
 }
 export default langEN

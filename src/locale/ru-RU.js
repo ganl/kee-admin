@@ -1,5 +1,7 @@
 const langRU = {
-  hello: 'Здравствуйте'
+  hello: 'Здравствуйте',
+  username: 'username',
+  loginBtn: 'login'
 }
 
 export default langRU

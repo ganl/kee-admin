@@ -2,7 +2,13 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import { Button, Select, TimePicker, DatePicker } from 'element-ui'
+import {
+  Row, Col,
+  Button, Select, TimePicker, DatePicker,
+  Form,
+  FormItem,
+  Input
+} from 'element-ui'
 import router from './router'
 import store from './store'
 
@@ -36,6 +42,12 @@ Vue.component(Select.name, Select)
  * Vue.use(Button)
  * Vue.use(Select)
  */
+
+Vue.use(Row)
+Vue.use(Col)
+Vue.use(Form)
+Vue.use(FormItem)
+Vue.use(Input)
 
 Vue.use(TimePicker)
 Vue.use(DatePicker)
