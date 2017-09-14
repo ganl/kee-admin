@@ -21,9 +21,11 @@
               <el-col :xs="22" :sm="22" :md="20" :lg="20" >
                 <el-form :model="loginForm" :rules="loginRules" ref="loginForm" class="">
                   <el-form-item prop="username">
+                    <span class="svg-container"><icon name="account" type="class"></icon></span>
                     <el-input type="text" v-model="loginForm.username" :placeholder="lables.username"></el-input>
                   </el-form-item>
                   <el-form-item prop="password">
+                    <span class="svg-container"><icon name="password"></icon></span>
                     <el-input type="password" v-model="loginForm.password" :placeholder="$t('password')"></el-input>
                   </el-form-item>
                   <el-form-item>
@@ -42,6 +44,12 @@
   </div>
 </template>
 <script>
+import Vue from 'vue'
+import VueIconFont from 'vue-icon-font'
+import '@/assets/iconfont/iconfont.css'
+import '@/assets/iconfont/iconfont.js'
+Vue.use(VueIconFont)
+
 export default {
   name: 'login',
   data () {
