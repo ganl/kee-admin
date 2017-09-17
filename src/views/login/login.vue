@@ -18,7 +18,7 @@
           </div>
           <div class="s-login-content">
             <el-row type="flex" justify="center">
-              <el-col :xs="22" :sm="22" :md="20" :lg="20" >
+              <el-col :xs="20" :sm="20" :md="18" :lg="18" >
                 <el-form :model="loginForm" :rules="loginRules" ref="loginForm" class="">
                   <el-form-item prop="username">
                     <span class="svg-container"><icon name="account" type="svg"></icon></span>

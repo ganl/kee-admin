@@ -9,12 +9,16 @@
     ["es2015", { "modules": false }],
     "stage-2"
   ],
-  "plugins": [["component", [
-    {
-      "libraryName": "element-ui",
-      "styleLibraryName": "theme-default"
-    }
-  ]],"transform-runtime"],
+  "plugins": [
+    "syntax-dynamic-import",
+    "dynamic-import-webpack",
+    ["component", [
+      {
+        "libraryName": "element-ui",
+        "styleLibraryName": "theme-default"
+      }
+    ]],
+  "transform-runtime"],
   "env": {
     "test": {
       "presets": ["env", "stage-2"],
