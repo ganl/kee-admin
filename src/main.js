@@ -70,10 +70,8 @@ ElementLocale.i18n((key, value) => i18n.t(key, value))
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
   i18n,
   store,
   router,
-  template: '<App/>',
-  components: { App }
-})
+  render: (h) => h(App)
+}).$mount('#app')

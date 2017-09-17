@@ -94,25 +94,11 @@ export default {
 }
 </script>
 <style lang="css" scoped>
-body{ 
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin:0; padding:0; font-size:14px; font-family:'\5FAE\8F6F\96C5\9ED1','Avenir', Helvetica, Arial, sans-serif;;}
 h1,h2,h3,h4,h5,h6,p,ul,form,dl,dd,dt{margin:0;padding:0;}
 li{list-style:none;}
 img{ border:0}
-.clear{clear:both;}
 a:hover{text-decoration:underline;}
 input,img{vertical-align:middle;}
-
-.clearfix:before,
-.clearfix:after {
-    content: " ";
-    display: table;
-}
-.clearfix:after{
-    clear: both;
-}
 
 .container {
     width: 100%;
