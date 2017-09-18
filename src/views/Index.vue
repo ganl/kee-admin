@@ -26,7 +26,7 @@
       <option>zh-TW</option>
       <option>ru-RU</option>
     </select>
-  <p>{{ $t("hello") }}</p>
+  <p>{{ $t("chooseLanguage") }}</p>
 
 </div>
 </template>

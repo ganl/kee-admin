@@ -1,10 +1,11 @@
 const langEN = {
-  hello: 'hello',
+  hello: 'Hello',
+  chooseLanguage: 'Language',
   defaultTitle: 'Informaiton2 software',
-  loginTitle: 'login',
-  username: 'username',
-  password: 'password',
-  loginBtn: 'login'
+  loginTitle: 'Login',
+  username: 'Username',
+  password: 'Password',
+  loginBtn: 'Login'
 }
 
 export default langEN

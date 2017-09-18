@@ -1,5 +1,6 @@
 const langTW = {
   hello: '您好',
+  chooseLanguage: '選擇語言',
   defaultTitle: 'Informaiton2 software',
   loginTitle: '登錄',
   username: '用護名',

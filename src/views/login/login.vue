@@ -6,7 +6,7 @@
           <el-col>
             <el-dropdown @command="handleCommand">
               <span class="el-dropdown-link choose-lang">
-                选择语言<icon name="language"></icon>
+                {{ $t("chooseLanguage") }}<icon name="language"></icon>
               </span>
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item command="en">English</el-dropdown-item>
