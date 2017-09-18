@@ -1,6 +1,26 @@
 <template>
   <div class="container">
-    <div class="login-header"></div>
+    <div class="login-header">
+      <div class="topbar">
+        <el-row>
+          <el-col>
+            <el-dropdown @command="handleCommand">
+              <span class="el-dropdown-link choose-lang">
+                选择语言<icon name="language"></icon>
+              </span>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item command="en">English</el-dropdown-item>
+                <el-dropdown-item command="zh-CN">简体中文</el-dropdown-item>
+                <el-dropdown-item command="zh-TW">繁體中文</el-dropdown-item>
+                <el-dropdown-item command="ru-RU">Русский язык</el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </el-col>
+        </el-row>
+      </div>
+      
+
+    </div>
     <div class="login-body">
       <div class="login-body-box">
         <div class="tips">
@@ -21,7 +41,7 @@
               <el-col :xs="20" :sm="20" :md="18" :lg="18" >
                 <el-form :model="loginForm" :rules="loginRules" ref="loginForm" class="">
                   <el-form-item prop="username">
-                      <el-input type="text" v-model="loginForm.username" :placeholder="lables.username">
+                      <el-input type="text" v-model="loginForm.username" :placeholder="$t('username')">
                         <template slot="prepend"><icon name="account" type="svg"></icon></template>
                       </el-input>
                   </el-form-item>
@@ -33,7 +53,6 @@
                   <el-form-item>
                     <el-button class="login-btn" type="primary" :loading="loading" @click.native.prevent="login">{{$t('loginBtn')}}</el-button>
                   </el-form-item>
-                  <el-alert title="消息提示的文案" type="warning" show-icon></el-alert>
                 </el-form>
               </el-col>
             </el-row>
@@ -48,6 +67,7 @@
 </template>
 <script>
 import Vue from 'vue'
+import lStorage from 'common/storage'
 import VueIconFont from 'vue-icon-font'
 import '@/assets/iconfont/iconfont.js'
 Vue.use(VueIconFont)
@@ -75,6 +95,11 @@ export default {
     }
   },
   methods: {
+    handleCommand (command) {
+      // this.$message('click on item ' + command)
+      this.$i18n.locale = command
+      lStorage.setItem('language', command)
+    },
     login () {
       this.$refs['loginForm'].validate(valid => {
         if (valid) {
@@ -84,7 +109,12 @@ export default {
             this.$router.push({path: '/home'})
           }).catch(err => {
             this.loading = false
-            this.$message.warning(err)
+            this.$message({
+              showClose: true,
+              duration: 0,
+              message: err.message,
+              type: 'warning'
+            })
           })
         } else {
           console.log('error input')
@@ -97,4 +127,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import '../../assets/sass/login.scss';
+.topbar {
+  line-height: 50px;
+  float: right;
+  margin-right: 20px;
+  color: #828282;
+  font-weight: 600;
+}
 </style>

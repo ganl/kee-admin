@@ -1,10 +1,10 @@
 const langRU = {
   hello: 'Здравствуйте',
   defaultTitle: 'Informaiton2 software',
-  loginTitle: 'login',
-  username: 'username',
-  password: 'password',
-  loginBtn: 'login'
+  loginTitle: 'Вход',
+  username: 'Имя пользователя',
+  password: 'Пароль',
+  loginBtn: 'Вход'
 }
 
 export default langRU

@@ -12,7 +12,8 @@ import {
   Dropdown,
   DropdownMenu,
   DropdownItem,
-  Message
+  Message,
+  MessageBox
 } from 'element-ui'
 import router from './router'
 import store from './store'
@@ -41,8 +42,12 @@ Vue.use(Dropdown)
 Vue.use(DropdownMenu)
 Vue.use(DropdownItem)
 Vue.use(Alert)
-Vue.use(Message)
+
 Vue.prototype.$message = Message
+Vue.prototype.$msgbox = MessageBox
+Vue.prototype.$alert = MessageBox.alert
+Vue.prototype.$confirm = MessageBox.confirm
+Vue.prototype.$prompt = MessageBox.prompt
 
 ElementLocale.i18n((key, value) => i18n.t(key, value))
 

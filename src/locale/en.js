@@ -6,4 +6,5 @@ const langEN = {
   password: 'password',
   loginBtn: 'login'
 }
+
 export default langEN

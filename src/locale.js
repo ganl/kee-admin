@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
+import lStorage from 'common/storage'
 
 // import Locales from './locale'
 
@@ -37,7 +38,7 @@ const messages = {
 // auto set language
 const navLang = navigator.language
 const localLang = (navLang === 'en' || navLang === 'zh-CN') ? navLang : false
-Vue.config.lang = window.localStorage.getItem('language') || localLang || 'en'
+Vue.config.lang = lStorage.getItem('language') || localLang || 'en'
 
 // Vue.locale('en', mergeEN)
 // Vue.locale('cn', mergeCN)

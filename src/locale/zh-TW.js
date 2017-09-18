@@ -1,10 +1,10 @@
 const langTW = {
-  hello: '你好-TW',
+  hello: '您好',
   defaultTitle: 'Informaiton2 software',
-  loginTitle: '登录',
-  username: '用户名',
-  password: '密码',
-  loginBtn: '登录'
+  loginTitle: '登錄',
+  username: '用護名',
+  password: '密碼',
+  loginBtn: '登錄'
 }
 
 export default langTW
