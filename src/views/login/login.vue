@@ -5,7 +5,7 @@
       <div class="login-body-box">
         <div class="tips">
           <dl>
-            <dt>英方 <span class="fly-label">I2</span>  <i class="fly"></i> </dt>
+            <dt>英方股份 <span class="fly-label">I2</span>  <i class="fly"></i> </dt>
             <dd>以保证企业<b>业务连续性</b>为首要目标</dd>
             <dd>实时数据复制、持续数据保护技术</dd>
             <dd>专注于容灾及业务高可用领域</dd>
@@ -78,7 +78,7 @@ export default {
           this.loading = true
           this.$store.dispatch('loginByIdentity', this.loginForm).then(() => {
             this.loading = false
-            this.$router.push({path: '/test'})
+            this.$router.push({path: '/home'})
           }).catch(err => {
             this.loading = false
             console.log(err)

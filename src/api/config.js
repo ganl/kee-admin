@@ -11,7 +11,7 @@ const config = {
     }
   },
   api: {
-    base: 'http://linux.i2/api/',
+    base: process.env.API_BASE,
     auth: 'auth/token',
     user: 'user/index',
     node: {

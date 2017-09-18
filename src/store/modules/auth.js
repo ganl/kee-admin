@@ -1,19 +1,41 @@
+import lStotage from 'common/storage'
+import moment from 'moment'
 import loginApi from 'api/login'
 import * as types from '../mutation-type'
+
+const getToken = () => {
+  let expiresIn = lStotage.getItem('expires_in') || moment().subtract(1, 'hours') // get expires in OR set expires
+  return moment().isBefore(expiresIn) ? lStotage.getItem('token') : ''
+}
+
+const setToken = (token) => {
+  let date = moment().add(2, 'hours').format() // ISO 8601
+  setTokenExpires(date)
+  lStotage.setItem('token', token)
+}
+
+const setTokenExpires = (date) => {
+  lStotage.setItem('expires_in', date)
+}
 
 const state = {
   username: '',
   profile: {},
-  token: '',
+  token: getToken(),
   roles: []
 }
 
 const getters = {
-  accessToken: state => state.token
+  accessToken: state => {
+    console.log(state)
+    state.token
+  }
 }
 
 const mutations = {
   [types.SET_TOKEN] (state, {token}) {
+    // lStotage.setItem('token', token)
+    setToken(token)
     state.token = token
   }
 }
