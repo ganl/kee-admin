@@ -21,16 +21,19 @@
               <el-col :xs="20" :sm="20" :md="18" :lg="18" >
                 <el-form :model="loginForm" :rules="loginRules" ref="loginForm" class="">
                   <el-form-item prop="username">
-                    <span class="svg-container"><icon name="account" type="svg"></icon></span>
-                    <el-input type="text" v-model="loginForm.username" :placeholder="lables.username"></el-input>
+                      <el-input type="text" v-model="loginForm.username" :placeholder="lables.username">
+                        <template slot="prepend"><icon name="account" type="svg"></icon></template>
+                      </el-input>
                   </el-form-item>
                   <el-form-item prop="password">
-                    <span class="svg-container"><icon name="password"></icon></span>
-                    <el-input type="password" v-model="loginForm.password" :placeholder="$t('password')"></el-input>
+                    <el-input type="password" v-model="loginForm.password" :placeholder="$t('password')">
+                      <template slot="prepend"><icon name="password"></icon></template>
+                    </el-input>
                   </el-form-item>
                   <el-form-item>
                     <el-button class="login-btn" type="primary" :loading="loading" @click.native.prevent="login">{{$t('loginBtn')}}</el-button>
                   </el-form-item>
+                  <el-alert title="消息提示的文案" type="warning" show-icon></el-alert>
                 </el-form>
               </el-col>
             </el-row>
@@ -81,7 +84,7 @@ export default {
             this.$router.push({path: '/home'})
           }).catch(err => {
             this.loading = false
-            console.log(err)
+            this.$message.warning(err)
           })
         } else {
           console.log('error input')

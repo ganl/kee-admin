@@ -7,7 +7,12 @@ import {
   Button, Select, TimePicker, DatePicker,
   Form,
   FormItem,
-  Input
+  Input,
+  Alert,
+  Dropdown,
+  DropdownMenu,
+  DropdownItem,
+  Message
 } from 'element-ui'
 import router from './router'
 import store from './store'
@@ -31,6 +36,13 @@ Vue.use(Input)
 
 Vue.use(TimePicker)
 Vue.use(DatePicker)
+
+Vue.use(Dropdown)
+Vue.use(DropdownMenu)
+Vue.use(DropdownItem)
+Vue.use(Alert)
+Vue.use(Message)
+Vue.prototype.$message = Message
 
 ElementLocale.i18n((key, value) => i18n.t(key, value))
 
