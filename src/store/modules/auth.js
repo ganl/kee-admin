@@ -25,13 +25,6 @@ const state = {
   roles: []
 }
 
-const getters = {
-  accessToken: state => {
-    console.log(state)
-    state.token
-  }
-}
-
 const mutations = {
   [types.SET_TOKEN] (state, {token}) {
     // lStotage.setItem('token', token)
@@ -61,7 +54,6 @@ const actions = {
 
 export default {
   state,
-  getters,
   actions,
   mutations
 }
