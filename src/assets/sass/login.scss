@@ -1,4 +1,3 @@
-
 .container {
     width: 100%;
     min-height: 100vh;
@@ -21,6 +20,9 @@
         margin: auto;
         position: relative;
         height: 530px;
+        @media screen and (min-width: 480px) and (max-width: 959px) {
+          width: auto;
+        }
         .tips {
             position: absolute;
             left: 0;
@@ -34,9 +36,14 @@
             background: #FFFFFF;
             height: 100%;
             box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-        }        
+            @media screen and (min-width: 480px) and (max-width: 959px) {
+                position: relative;
+                right: auto;
+                margin: 0 auto;
+            }
+        }
     }
-    
+
 }
 
 .tips {
@@ -76,6 +83,7 @@ span.fly-label {
 .s-login-header {
     padding-top: 60px;
     padding-bottom: 50px;
+    margin-top: 46px;
 }
 
 .el-form-item, .btn-wrap {
@@ -86,22 +94,6 @@ span.fly-label {
     vertical-align: middle;
 }
 
-.s-input-text {
-    background: #FFF;
-    border: 1px solid #D7D8D9;
-    width: 100%;
-    height: 40px;
-    line-height: 40px;
-    padding: 0 10px;
-    box-sizing: border-box;
-    outline: 0;
-    box-shadow: none;
-    display: table-cell;
-    vertical-align: middle;
-    border-left: none;
-    border-radius: 0 4px 4px 0;
-}
-
 .login-btn {
     width: 100%;
     font-size: 16px;
@@ -109,41 +101,22 @@ span.fly-label {
     text-align: center;
 }
 
-.input-group-addon {
-    display: table-cell;
-    padding: 6px 8px;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1;
-    color: #555;
-    text-align: center;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 4px 0 0 4px;
-    vertical-align: middle;
-    border-right: none;
+@media screen and (min-width:1200px) {
+
 }
 
-.s-icon-user, .s-icon-pwd, .s-icon-code {
-    width: 16px;
-    height: 16px;
-    display: block;
-    text-indent: 20px;
-    font-style:normal;
-    color: rgba(0, 0, 0, 0.2);
+@media screen and (min-width: 960px) and (max-width: 1199px) {
+
 }
 
-.s-icon-user {
-    background: url("/static/user.png");
-    margin-right: -20px;
+@media screen and (min-width: 768px) and (max-width: 959px) {
+  .tips {
+    display: none;
+  }
 }
 
-.s-icon-pwd {
-    background: url("/static/pwd.png");
-    margin-right: -20px;
-}
-
-.s-icon-code {
-    background: url("/static/code.png");
-    margin-right: -9px;
+@media only screen and (max-width: 767px) {
+  .tips {
+    display: none;
+  }
 }
