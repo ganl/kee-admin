@@ -13,6 +13,7 @@ const config = {
   api: {
     base: process.env.API_BASE,
     auth: 'auth/token',
+    category: 'permisson/category',
     user: 'user/index',
     node: {
       index: 'node/index'

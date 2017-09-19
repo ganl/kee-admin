@@ -18,7 +18,7 @@
           </el-col>
         </el-row>
       </div>
-      
+
 
     </div>
     <div class="login-body">
@@ -41,12 +41,12 @@
               <el-col :xs="20" :sm="20" :md="18" :lg="18" >
                 <el-form :model="loginForm" :rules="loginRules" ref="loginForm" class="">
                   <el-form-item prop="username">
-                      <el-input type="text" v-model="loginForm.username" :placeholder="$t('username')">
+                      <el-input type="text" v-model="loginForm.username" :placeholder="lables.test" autoComplete="off">
                         <template slot="prepend"><icon name="account" type="svg"></icon></template>
                       </el-input>
                   </el-form-item>
                   <el-form-item prop="password">
-                    <el-input type="password" v-model="loginForm.password" :placeholder="$t('password')">
+                    <el-input type="password" v-model="loginForm.password" :placeholder="$t('password')" autoComplete="off" @keyup.enter.native="login">
                       <template slot="prepend"><icon name="password"></icon></template>
                     </el-input>
                   </el-form-item>
@@ -85,10 +85,10 @@ export default {
       },
       loginRules: {
         username: [
-            { required: true, message: '请输入用户名', trigger: 'blur' }
+            { required: true, message: this.$t('user.pleaseInputUsername'), trigger: 'blur' }
         ],
         password: [
-            { required: true, message: '请输入登录密码', trigger: 'blur' }
+            { required: true, message: this.$t('user.pleaseInputPassword'), trigger: 'blur' }
         ]
       },
       loading: false

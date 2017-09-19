@@ -5,7 +5,11 @@ const langRU = {
   loginTitle: 'Вход',
   username: 'Имя пользователя',
   password: 'Пароль',
-  loginBtn: 'Вход'
+  loginBtn: 'Вход',
+  user: {
+    pleaseInputUsername: 'Введите имя пользователя',
+    pleaseInputPassword: 'Введите пароль для входа'
+  }
 }
 
 export default langRU

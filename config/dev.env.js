@@ -3,5 +3,5 @@ var prodEnv = require('./prod.env')
 
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
-  API_BASE: '"//linux.i2/api/"'
+  API_BASE: '"//rap.info2soft.com/mockjs/3/"'
 })

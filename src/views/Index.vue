@@ -33,7 +33,7 @@
 
 <script>
   export default {
-    name: 'test',
+    name: 'Index',
     data () {
       return {
         pickerOptions1: {

@@ -13,11 +13,18 @@ import {
   DropdownMenu,
   DropdownItem,
   Message,
-  MessageBox
+  MessageBox,
+  Menu,
+  Submenu,
+  MenuItem,
+  MenuItemGroup,
+  Table,
+  TableColumn
 } from 'element-ui'
 import router from './router'
 import store from './store'
 import i18n from './locale'
+import './mock'
 import ElementLocale from 'element-ui/lib/locale'
 
 Vue.config.productionTip = false
@@ -28,6 +35,11 @@ Vue.component(Select.name, Select)
  * Vue.use(Button)
  * Vue.use(Select)
  */
+
+Vue.use(Menu)
+Vue.use(Submenu)
+Vue.use(MenuItem)
+Vue.use(MenuItemGroup)
 
 Vue.use(Row)
 Vue.use(Col)
@@ -42,6 +54,9 @@ Vue.use(Dropdown)
 Vue.use(DropdownMenu)
 Vue.use(DropdownItem)
 Vue.use(Alert)
+
+Vue.use(Table)
+Vue.use(TableColumn)
 
 Vue.prototype.$message = Message
 Vue.prototype.$msgbox = MessageBox

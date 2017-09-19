@@ -5,7 +5,11 @@ const langCN = {
   loginTitle: '登录',
   username: '用户名',
   password: '密码',
-  loginBtn: '登录'
+  loginBtn: '登录',
+  user: {
+    pleaseInputUsername: '请输入用户名',
+    pleaseInputPassword: '请输入登录密码'
+  }
 }
 
 export default langCN
