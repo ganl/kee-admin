@@ -19,7 +19,11 @@ import {
   MenuItem,
   MenuItemGroup,
   Table,
-  TableColumn
+  TableColumn,
+  Pagination,
+  Dialog,
+  Option,
+  OptionGroup
 } from 'element-ui'
 import router from './router'
 import store from './store'
@@ -57,6 +61,10 @@ Vue.use(Alert)
 
 Vue.use(Table)
 Vue.use(TableColumn)
+Vue.use(Pagination)
+Vue.use(Dialog)
+Vue.use(Option)
+Vue.use(OptionGroup)
 
 Vue.prototype.$message = Message
 Vue.prototype.$msgbox = MessageBox
