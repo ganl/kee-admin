@@ -2,10 +2,10 @@
 </template>
 <script>
 export default {
-  name: "header",
+  name: 'vHead',
   data () {
     return {
-    };
+    }
   }
 }
 </script>

@@ -11,7 +11,7 @@ const config = {
     }
   },
   api: {
-    base: process.env.API_BASE,
+    base: process.env.API_BASE, // api root
     auth: 'auth/token',
     category: 'permisson/category',
     user: 'user/index',
