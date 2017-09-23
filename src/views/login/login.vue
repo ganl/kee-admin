@@ -106,7 +106,7 @@ export default {
           this.loading = true
           this.$store.dispatch('loginByIdentity', this.loginForm).then(() => {
             this.loading = false
-            this.$router.push({path: '/home'})
+            this.$router.push({path: '/dashboard'}) // console home
           }).catch(err => {
             this.loading = false
             this.$message({

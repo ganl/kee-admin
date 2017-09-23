@@ -12,10 +12,9 @@ Vue.use(Router)
 
 const Index = _import('Index')
 const Login = _import('login/login')
-// const Home = _import('home/index')
+const Dashboard = _import('home/index')
 const Err404 = _import('error/404')
 const PermissionDenied = _import('error/permission')
-const Layout = _import('layout')
 
 import Node from './node'
 import User from './user'
@@ -27,7 +26,37 @@ const items = [
   Vp
 ]
 
+// scrollBehavior: https://github.com/vuejs/vue-router/blob/next/examples/scroll-behavior/app.js
+// - only available in html5 history mode
+// - defaults to no scroll behavior
+// - return false to prevent scroll
+const scrollBehavior = (to, from, savedPosition) => {
+  if (savedPosition) {
+    // savedPosition is only available for popstate navigations.
+    return savedPosition
+  } else {
+    const position = {}
+    // new navigation.
+    // scroll to anchor by returning the selector
+    if (to.hash) {
+      position.selector = to.hash
+    }
+    // check if any matched route config has meta that requires scrolling to top
+    if (to.matched.some(m => m.meta.scrollToTop)) {
+      // cords will be used if no selector is provided,
+      // or if the selector didn't match any element.
+      position.x = 0
+      position.y = 0
+    }
+    // if the returned position is falsy or an empty object,
+    // will retain current scroll position.
+    return position
+  }
+}
+
 const router = new Router({
+  // mode: 'history',
+  scrollBehavior,
   routes: [
     {
       path: '/',
@@ -36,20 +65,13 @@ const router = new Router({
       // component: Index,
       meta: {
         noAuth: true,
-        title: i18n.t('hello')
-      }
-    }, {
-      path: '/user',
-      name: 'user',
-      component: _import('user/index'),
-      meta: {
-        noAuth: true,
-        title: i18n.t('hello')
+        title: i18n.t('hello'),
+        scrollToTop: true
       }
     }, {
       path: '/portal',
       name: 'portal',
-      component: Index,
+      component: Index, // webconsole index
       meta: {
         noAuth: true,
         title: i18n.t('hello')
@@ -63,9 +85,9 @@ const router = new Router({
         title: i18n.t('loginTitle')
       }
     }, {
-      path: '/home',
-      name: 'home',
-      component: Layout,
+      path: '/dashboard',
+      name: 'dashboard',
+      component: Dashboard,
       meta: {
         noAuth: false
       }
@@ -73,7 +95,7 @@ const router = new Router({
       path: '/404',
       component: Err404,
       meta: {
-        noAuth: true
+        // noAuth: true
       }
     }, {
       path: '/permission_denied',
@@ -82,22 +104,21 @@ const router = new Router({
         noAuth: true
       }
     },
-    ...User,
     { path: '*', redirect: '/404', hidden: true }
   ]
 })
 
 function generateRoutesByCategory (categories = [], items = []) {
-  const licensed = []
+  const licensedCategories = []
   for (let i = 0, l = categories.length; i < l; i++) {
     for (let j = 0; j < items.length; j++) {
       let item = items[j]
-      if (item.name.toLowerCase().indexOf(categories[i].category) >= 0) {
-        licensed.push(item)
+      if (item.meta.category.toLowerCase().indexOf(categories[i].category) >= 0) {
+        licensedCategories.push(item)
       }
     }
   }
-  return licensed
+  return licensedCategories
 }
 
 function generateRoutesFromItem (items = [], routes = []) {
@@ -105,11 +126,13 @@ function generateRoutesFromItem (items = [], routes = []) {
     let item = items[i]
     if (item.path) {
       routes.push(item)
+      console.log(item)
     }
-    if (item.children) {
-      generateRoutesFromItem(item.children, routes)
-    }
+    // if (item.children) {
+    //   generateRoutesFromItem(item.children, routes)
+    // }
   }
+  // console.log(items, routes)
   return routes
 }
 
@@ -120,13 +143,13 @@ router.beforeEach((to, from, next) => {
     if (store.getters.accessToken) {
       if (store.getters.categories.length === 0) {
         store.dispatch('getCategory').then((res) => {
-          const licensed = generateRoutesByCategory(res.categories, items)
-          console.log(licensed)
-          const routes = generateRoutesFromItem(licensed)
-          console.log(routes)
+          const licensedCategories = generateRoutesByCategory(res.categories, items)
+          const routes = generateRoutesFromItem(licensedCategories)
           store.commit('SET_MENU', routes)
-          router.addRoutes(store.getters.menu)
-          next()
+          console.log(store.getters.menu)
+          router.addRoutes(routes)
+          // router.addRoutes({ path: '*', redirect: '/404', hidden: true })
+          next(to.path)
         })
       } else {
         next()

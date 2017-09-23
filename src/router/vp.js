@@ -5,7 +5,8 @@ export default {
   name: 'VP',
   meta: {
     title: i18n.t('hello'),
-    iconname: 'vp'
+    iconname: 'vp',
+    category: 'virtualPlatform'
   },
   children: [
     {

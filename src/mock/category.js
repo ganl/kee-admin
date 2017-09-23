@@ -1,5 +1,5 @@
 const categories = [
-  {category: 'vp'}, {category: 'nodes'}, {category: 'replication'}
+  {category: 'system'}, {category: 'virtualPlatform'}, {category: 'backup'}, {category: 'ha'}, {category: 'replication'}
 ]
 
 export default {

@@ -7,7 +7,8 @@ export default {
   component: _import('node/index'),
   meta: {
     title: i18n.t('hello'),
-    iconname: 'node'
+    iconname: 'node',
+    category: 'system'
   },
   children: [
     {

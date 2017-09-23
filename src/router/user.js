@@ -8,7 +8,8 @@ export default {
   meta: {
     title: i18n.t('hello'),
     iconname: 'user',
-    role: ['admin']
+    role: ['admin'],
+    category: 'system'
   },
   children: [
     {
