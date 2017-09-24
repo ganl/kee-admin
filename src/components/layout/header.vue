@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="topbar">
   header
 </div>
 </template>
@@ -13,4 +13,11 @@ export default {
 }
 </script>
 <style lang="css" scoped>
+.topbar {
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  background: #3c8dbc;
+  z-index: 101;
+}
 </style>

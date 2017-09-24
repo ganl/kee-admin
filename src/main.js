@@ -23,7 +23,10 @@ import {
   Pagination,
   Dialog,
   Option,
-  OptionGroup
+  OptionGroup,
+  Breadcrumb,
+  BreadcrumbItem,
+  Tooltip
 } from 'element-ui'
 import router from './router'
 import store from './store'
@@ -65,6 +68,10 @@ Vue.use(Pagination)
 Vue.use(Dialog)
 Vue.use(Option)
 Vue.use(OptionGroup)
+
+Vue.use(Breadcrumb)
+Vue.use(BreadcrumbItem)
+Vue.use(Tooltip)
 
 Vue.prototype.$message = Message
 Vue.prototype.$msgbox = MessageBox

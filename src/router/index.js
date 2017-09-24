@@ -126,7 +126,6 @@ function generateRoutesFromItem (items = [], routes = []) {
     let item = items[i]
     if (item.path) {
       routes.push(item)
-      console.log(item)
     }
     // if (item.children) {
     //   generateRoutesFromItem(item.children, routes)
@@ -146,7 +145,6 @@ router.beforeEach((to, from, next) => {
           const licensedCategories = generateRoutesByCategory(res.categories, items)
           const routes = generateRoutesFromItem(licensedCategories)
           store.commit('SET_MENU', routes)
-          console.log(store.getters.menu)
           router.addRoutes(routes)
           // router.addRoutes({ path: '*', redirect: '/404', hidden: true })
           next(to.path)
